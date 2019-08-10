@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <title>Mi primer sitio web con python</title>
+    <!--- BOOTSTRAP 4 plantilla ya diseñada de getbootstrap-com sirve para no hacer el css desde cero-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!--CUSTOM CSS-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css')}}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!--"Python WebApp" es el titulo-->
+        <a class="navbar-brand" href="/">Python WebApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                    <!--Aqui esta el boton para ir a "/" -->
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url_for('about')}}">About</a>
+                    <!--Aqui esta el boton para ir a about-->
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Este es el layout o plantilla basica con el que estara cualquier pagina que lo use, a partir de aqui se cambia a lo que se necesite-->
+    <div class="container p-4">
+        {% block content %}
+        {% endblock %}
+    </div>
+    
+
+
+</body>
+</html>
